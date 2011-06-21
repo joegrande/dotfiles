@@ -17,7 +17,15 @@ set history=200
 set number
 set notitle
 set foldlevel=999
+set novb
 "set mouse=a
+
+" Switch to Ibeam in insert mode
+if has("autocmd")
+  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+endif
 
 " Fuf
 let g:fuf_file_exclude='\v\~$|\.(o|exe|dll|bak|orig|sw[po]|jpg|gif|png|o|pyc|swf|pdf|psd|zip|flv|ttf|jar|gz|gpg|fla)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
@@ -43,6 +51,8 @@ nnoremap <F3> :FufLine<CR>
 nnoremap <F4> :set nonumber!<CR>
 nnoremap <gt> :tabprevious<CR>
 nnoremap <gT> :tabNext<CR>
+nnoremap <TAB> :tabnext<CR>
+nnoremap <S-TAB> :tabprevious<CR>
 
 " gvim
 set guifont=Monospace\ 8
