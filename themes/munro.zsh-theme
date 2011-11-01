@@ -1,6 +1,15 @@
 # ✳ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ✱ ✲ ✳ ✴ ✵ ✶ ✷ ✸ ✹ ✺ ✻ ✼ ✽ ✾ ✿ ❀ ❁ ❂ ❃ ❄ ❅ ❆ ❇ ❈ ❉ ❊ ❋ ❖
 # ➜
 
+function timebook_prompt_info() {
+    if [ "`t`" = "default: not active" ]
+    then
+        echo "NO"
+    else
+        echo "%{$reset_color%}%{$fg[red]%}`t | sed 's/^[^\(]*//'` "
+    fi
+}
+
 if [ "`hostname -s`" = "skylab" ]
 then
     ICON="❀ "
