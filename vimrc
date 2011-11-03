@@ -83,7 +83,7 @@ colorscheme ohess
 "autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "autocmd FileType c set omnifunc=ccomplete#Complete
 
-set rtp+=~/.vim/vundle.git/ 
+set rtp+=~/.vim/vundle/ 
 call vundle#rc()
 
 " My bundles
