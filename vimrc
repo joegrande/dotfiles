@@ -18,7 +18,7 @@ set number
 set notitle
 set foldlevel=999
 set novb
-"set mouse=a
+set mouse=a
 
 " Set title
 
@@ -35,6 +35,7 @@ endif
 
 " Fuf
 let g:fuf_file_exclude='\v\~$|\.(o|exe|dll|bak|orig|sw[po]|jpg|gif|png|o|pyc|swf|pdf|psd|zip|flv|ttf|jar|gz|gpg|fla)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+filetype plugin on
 
 " Tabbing
 set tabstop=4
@@ -48,6 +49,8 @@ com! Q q
 com! W w
 com! Wq wq
 com! WQ wq
+com! Bd bd
+com! BD bd
 
 " Maps
 "nnoremap ` :NERDTreeToggle<CR>
@@ -66,53 +69,55 @@ set guioptions-=T
 
 " colors
 set t_Co=256
-colorscheme candycode2
+"colorscheme candycode2
+colorscheme ohess
 "hi LineNr ctermfg=darkcyan ctermbg=black
 
 
-autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
+"autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType c set omnifunc=ccomplete#Complete
 
 set rtp+=~/.vim/vundle.git/ 
 call vundle#rc()
 
 " My bundles
-Bundle "taglist.vim"
+"Bundle "taglist.vim"
 "Bundle "https://github.com/scrooloose/nerdtree.git"
 "Bundle "minibufexpl.vim"
-Bundle "ctags.vim"
-Bundle "Conque-Shell"
+"Bundle "ctags.vim"
+"Bundle "Conque-Shell"
 Bundle "vimwiki"
 "Bundle "remote-PHP-debugger"
 "Bundle "actionscript.vim--Leider"
+Bundle "Command-T"
 au BufNewFile,BufRead *.mxml set filetype=mxml
 au Bufread,BufNewFile *.as set filetype=actionscript
+au Bufread,BufNewFile *.cs set filetype=coffee
+au Bufread,BufNewFile *.co set filetype=coffee
+au Bufread,BufNewFile *.less set filetype=less
+au Bufread,BufNewFile *.go set filetype=go
 syntax on
 
-" PHP-DOC
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
-vnoremap <C-P> :call PhpDocRange()<CR> 
 
 " remember session
-set viminfo='10,\"100,:20,%,n~/.viminfo
-function! ResCur()
-    if line("'\"") <= line("$")
-        normal! g`"
-        return 1
-    endif
-endfunction
+"set viminfo='10,\"100,:20,%,n~/.viminfo
+"function! ResCur()
+"    if line("'\"") <= line("$")
+"        normal! g`"
+"        return 1
+"    endif
+"endfunction
 
-augroup resCur
-    autocmd!
-    autocmd BufWinEnter * call ResCur()
-augroup END
+"augroup resCur
+"    autocmd!
+"    autocmd BufWinEnter * call ResCur()
+"augroup END
 "autocmd BufReadPost *
 "  \ if ! exists("g:leave_my_cursor_position_alone") |
 "  \     if line("'\"") > 0 && line ("'\"") <= line("$") |
