@@ -1,0 +1,108 @@
+Xcursor.theme: Vanilla-DMZ-AA
+
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~
+
+! XTerm class
+XTerm*faceName: DejaVu Sans Mono:style=Book
+XTerm*faceSize: 10
+XTerm*termName: xterm-color
+XTerm*boldMode: false
+
+! XTerm scheme - base
+XTerm*background: #332f2c
+XTerm*foreground: #e5e5e5
+XTerm*color0: #4d4843
+XTerm*color8: #777069
+XTerm*color1: #e10e36
+XTerm*color9: #fb365b
+XTerm*color2: #c7cd22
+XTerm*color10: #dfe544
+XTerm*color3: #f4a919
+XTerm*color11: #f6ba47
+XTerm*color4: #14abbd
+XTerm*color12: #32d4e7
+XTerm*color5: #3079c4
+XTerm*color13: #4294e7
+XTerm*color6: #819eb7
+XTerm*color14: #bbd0e1
+XTerm*color7: whitesmoke
+XTerm*color15: ghostwhite
+
+! Urxvt class
+URxvt.font: xft:DejaVu Sans Mono-8:style=Book
+URxvt*fading: 50
+URxvt*scrollBar: true
+URxvt*scrollstyle: plain
+URxvt*scrollBar_floating: true
+URxvt*scrollBar_right: true
+URxvt*scrollColor: #202020
+URxvt*termName: xterm
+URxvt*urllauncher: /usr/bin/chromium 
+URxvt*matcher.button: 3
+URxvt*saveLines: 8192
+URxvt*internalBorder: 20
+URxvt*urgentOnBell: true
+
+! Urxvt scheme - base
+URxvt*background: grey10
+URxvt*foreground: ghostwhite
+URxvt*color0: #4d4843
+URxvt*color8: #777069
+URxvt*color1: #e10e36
+URxvt*color9: #fb365b
+URxvt*color2: #c7cd22
+URxvt*color10: #dfe544
+URxvt*color3: #f4a919
+URxvt*color11: #f6ba47
+URxvt*color4: #14abbd
+URxvt*color12: #32d4e7
+URxvt*color5: #3079c4
+URxvt*color13: #4294e7
+URxvt*color6: #819eb7
+URxvt*color14: #bbd0e1
+URxvt*color7: whitesmoke
+URxvt*color15: ghostwhite
+
+! Urxvt Scheme - coding
+coding*font: xft:Inconsolata-11:style=Normal
+coding*background: grey10
+coding*foreground: #DED6CA
+coding*color0: #4d4843
+coding*color8: #5C5245
+coding*color1: #76AEED
+coding*color9: #75B6FF
+coding*color2: #FFC469
+coding*color10: #FFD28D
+coding*color3: #E2E7F3
+coding*color11: #EBEFF9
+coding*color4: #CEA2EF
+coding*color12: #D6B6EF
+coding*color5: #B0D6FF
+coding*color13: #D0F6FF
+coding*color6: #FFD28D
+coding*color14: #FFDDAA
+coding*color7: #D1C8BC
+coding*color15: #DED6CA
+
+! Urxvt Scheme - tiny
+tiny*font: xft:DejaVu Sans Mono-8:style=Book
+tiny*background: grey10
+tiny*foreground: #DED6CA
+tiny*color0: #4d4843
+tiny*color8: #5C5245
+tiny*color1: #76AEED
+tiny*color9: #75B6FF
+tiny*color2: #FFC469
+tiny*color10: #FFD28D
+tiny*color3: #E2E7F3
+tiny*color11: #EBEFF9
+tiny*color4: #CEA2EF
+tiny*color12: #D6B6EF
+tiny*color5: #B0D6FF
+tiny*color13: #D0F6FF
+tiny*color6: #FFD28D
+tiny*color14: #FFDDAA
+tiny*color7: #D1C8BC
+tiny*color15: #DED6CA
+

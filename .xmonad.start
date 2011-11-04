@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Set up icon tray
+trayer --SetDockType true --SetPartialStrut true --align right --alpha 0 --distance 459 --distancefrom right --edge top --expand true --height 20 --tint 0x111111 --transparent true --width 5 & 
+
+feh --bg-scale wallpaper.jpg
+
+if [ -x /usr/bin/nm-applet ] ; then
+   nm-applet --sm-disable &
+fi
+
+if [ -x /usr/bin/gnome-power-manager ] ; then
+   #sleep 3
+   gnome-power-manager &
+fi
+ 
+exec xmonad
