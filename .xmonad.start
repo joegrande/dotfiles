@@ -13,5 +13,7 @@ if [ -x /usr/bin/gnome-power-manager ] ; then
    #sleep 3
    gnome-power-manager &
 fi
+
+xmodmap $HOME/.Xmodmap
  
 exec xmonad
