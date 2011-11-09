@@ -2,7 +2,6 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Named
-import XMonad.Layout.ResizableTile 
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.EZConfig(additionalKeys)
@@ -21,25 +20,18 @@ main = do
         , layoutHook            = avoidStruts $ wmLayout
         , manageHook            = manageDocks <+> manageHook defaultConfig
         , logHook               = wmLog hXmobar 
-        } `additionalKeys` wmKeys)
+        }
 
 -- Colors
 colorNormalBorder   = "#4d4843"
 colorFocusedBorder  = "#FFC469"
 
 -- Layout
-wmLayout = layoutHints (wmLayoutTall ||| wmLayoutWide ||| Full ||| wmLayoutTiny ||| wmLayoutResize) 
+wmLayout = layoutHints (wmLayoutTall ||| wmLayoutWide ||| Full ||| wmLayoutTiny) 
 
 wmLayoutTall = named "Tall" (Tall 1 (3/100) (6/10))
 wmLayoutWide = named "Wide" (Mirror $ Tall 1 (3/100) (7/10))
 wmLayoutTiny = named "Tiny" (Tall 1 (1/10) (7/10))
-wmLayoutResize = named "Tall" (ResizableTall 1 (3/100) (1/2) [])
-
--- Keys
-wmKeys = 
-    [ ((mod4Mask, xK_z), sendMessage MirrorShrink)
-    , ((mod4Mask, xK_a), sendMessage MirrorExpand)
-    ]
 
 -- Logging/Status
 wmLog h = dynamicLogWithPP $ defaultPP
