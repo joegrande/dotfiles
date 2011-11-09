@@ -23,7 +23,8 @@ else
     ICON="➜ "
 fi
 
-PROMPT='%{$fg_bold[magenta]%}$ICON%n %{$fg[yellow]%}%~ $(git_prompt_info)%{$reset_color%}'
+PROMPT='%{$fg_bold[magenta]%}$ICON%n %{$fg[yellow]%}%~ $(git_prompt_info)
+%{$fg_bold[magenta]%}$ICON%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
