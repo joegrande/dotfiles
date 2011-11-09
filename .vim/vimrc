@@ -24,6 +24,8 @@ set mouse=a
 autocmd BufEnter ?akefile* set noet ts=8 sw=8
 autocmd BufEnter */debian/rules set noet ts=8 sw=8
 
+set wildignore+=*.o,*.obj,.git,*.min.js,*.png,*.class,*.jpg,*.jar,*.pack,*.idx,*.gif,*.apk,*.dmg
+
 " Set title
 
 set title titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
@@ -58,7 +60,7 @@ com! BD bd
 
 " Maps
 "nnoremap ` :NERDTreeToggle<CR>
-nnoremap <F1> :FufFile<CR>
+nnoremap <F1> :CommandT<CR>
 nnoremap <F2> :FufBuffer<CR>
 nnoremap <F3> :FufLine<CR>
 nnoremap <F4> :set nonumber!<CR>
@@ -68,7 +70,7 @@ nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> :tabprevious<CR>
 
 " gvim
-set guifont=Monospace\ 8
+set guifont=Monospace\ 9
 set guioptions-=T
 set guioptions-=m
 set guioptions-=l
