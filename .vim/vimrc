@@ -20,6 +20,10 @@ set foldlevel=999
 set novb
 set mouse=a
 
+" Makefile sanity
+autocmd BufEnter ?akefile* set noet ts=8 sw=8
+autocmd BufEnter */debian/rules set noet ts=8 sw=8
+
 " Set title
 
 set title titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
@@ -27,8 +31,8 @@ set title titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:ser
 
 " Switch to Ibeam in insert mode
 if has("autocmd")
-  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
-  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  "au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+  "au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
   "au VimEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
   "au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
 endif
@@ -66,6 +70,11 @@ nnoremap <S-TAB> :tabprevious<CR>
 " gvim
 set guifont=Monospace\ 8
 set guioptions-=T
+set guioptions-=m
+set guioptions-=l
+set guioptions-=r
+set guioptions-=b
+set guioptions-=L
 
 " colors
 set t_Co=256
