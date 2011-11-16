@@ -6,15 +6,17 @@ xrdb -load $HOME/.Xdefaults
 # Set up icon tray
 trayer --SetDockType true --SetPartialStrut true --align right --alpha 0 --distance 459 --distancefrom right --edge top --expand true --height 20 --tint 0x111111 --transparent true --width 5 & 
 
-feh --bg-fill .wallpaper.jpg
-
 if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
 fi
 
 if [ -x /usr/bin/gnome-power-manager ] ; then
-   #sleep 3
+   #sleep 3 # not sure why this snippet wanted me to sleep
    gnome-power-manager &
 fi
  
+if [ -f $HOME/.fehbg ] ; then
+    . $HOME/.fehbg
+fi
+
 exec xmonad

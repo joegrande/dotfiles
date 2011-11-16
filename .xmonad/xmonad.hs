@@ -1,16 +1,26 @@
+import System.IO
 import XMonad
 import XMonad.Hooks.DynamicLog
-import XMonad.Layout.LayoutHints
-import XMonad.Layout.Named
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
+import XMonad.Layout.LayoutHints
+import XMonad.Layout.Named
+import XMonad.Layout.ResizableTile 
+import XMonad.ManageHook
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
-import System.IO
+import qualified XMonad.StackSet as W
 
+-- Program Exceptions
+myManageHook  = composeAll [ resource =? "gitk"  --> doF (W.swapMaster)
+                           , resource =? "meld"  --> doF (W.swapMaster)
+                           ]
+newManageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
+
+-- Xmonad
 main = do
     hXmobar <- spawnPipe "/usr/bin/xmobar"
-    xmonad =<< xmobar ((withUrgencyHook NoUrgencyHook) defaultConfig) 
+    xmonad =<< xmobar ((withUrgencyHook NoUrgencyHook) defaultConfig
         { modMask               = mod4Mask 
         , terminal              = "urxvt"
         , workspaces            = map show [1..6]
@@ -18,20 +28,27 @@ main = do
         , focusedBorderColor    = colorFocusedBorder
         , borderWidth           = 3
         , layoutHook            = avoidStruts $ wmLayout
-        , manageHook            = manageDocks <+> manageHook defaultConfig
+        , manageHook            = newManageHook
         , logHook               = wmLog hXmobar 
-        }
+        } `additionalKeys` wmKeys)
 
 -- Colors
 colorNormalBorder   = "#4d4843"
 colorFocusedBorder  = "#FFC469"
 
 -- Layout
-wmLayout = layoutHints (wmLayoutTall ||| wmLayoutWide ||| Full ||| wmLayoutTiny) 
+wmLayout = layoutHints (wmLayoutTall ||| wmLayoutWide ||| Full ||| wmLayoutTiny ||| wmLayoutResize) 
 
 wmLayoutTall = named "Tall" (Tall 1 (3/100) (6/10))
 wmLayoutWide = named "Wide" (Mirror $ Tall 1 (3/100) (7/10))
 wmLayoutTiny = named "Tiny" (Tall 1 (1/10) (7/10))
+wmLayoutResize = named "Tall" (ResizableTall 1 (3/100) (1/2) [])
+
+-- Keys
+wmKeys = 
+    [ ((mod4Mask, xK_z), sendMessage MirrorShrink)
+    , ((mod4Mask, xK_a), sendMessage MirrorExpand)
+    ]
 
 -- Logging/Status
 wmLog h = dynamicLogWithPP $ defaultPP
@@ -52,4 +69,3 @@ wmLog h = dynamicLogWithPP $ defaultPP
     )
     , ppTitle               = xmobarColor colorFocusedBorder "" . shorten 50
     }
-
