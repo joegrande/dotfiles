@@ -32,4 +32,9 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
+
+export PATH="/usr/local/bin:$PATH"
+
+. ~/.nvm/nvm.sh
+nvm use 0.4 >/dev/null
 . ~/.localrc

@@ -61,7 +61,7 @@ com! BD bd
 " Maps
 "nnoremap ` :NERDTreeToggle<CR>
 nnoremap <F1> :CommandT<CR>
-nnoremap <F2> :FufBuffer<CR>
+nnoremap <F2> :CommandTBuffer<CR>
 nnoremap <F3> :FufLine<CR>
 nnoremap <F4> :set nonumber!<CR>
 nnoremap <gt> :tabprevious<CR>
