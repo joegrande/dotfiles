@@ -27,9 +27,16 @@ autocmd BufEnter */debian/rules set noet ts=8 sw=8
 set wildignore+=*.o,*.obj,.git,*.min.js,*.png,*.class,*.jpg,*.jar,*.pack,*.idx,*.gif,*.apk,*.dmg
 
 " Set title
-
 set title titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
 
+" Remember where the file was last left off
+if has("autocmd")
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \ endif
+endif
 
 " Switch to Ibeam in insert mode
 if has("autocmd")
