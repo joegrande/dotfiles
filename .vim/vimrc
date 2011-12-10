@@ -103,16 +103,24 @@ call vundle#rc()
 "Bundle "minibufexpl.vim"
 "Bundle "ctags.vim"
 "Bundle "Conque-Shell"
-Bundle "vimwiki"
+"Bundle "vimwiki"
 "Bundle "remote-PHP-debugger"
 "Bundle "actionscript.vim--Leider"
 Bundle "Command-T"
+Bundle 'fugitive.vim'
+Bundle 'reload.vim'
+"Bundle 'Markdown'
+"Bundle 'Markdown-syntax'
+"Bundle 'Syntastic'
+"Bundle 'Lokaltog/vim-superstatus'
+
 au BufNewFile,BufRead *.mxml set filetype=mxml
 au Bufread,BufNewFile *.as set filetype=actionscript
 au Bufread,BufNewFile *.cs set filetype=coffee
 au Bufread,BufNewFile *.co set filetype=coffee
 au Bufread,BufNewFile *.less set filetype=less
 au Bufread,BufNewFile *.go set filetype=go
+au BufNewFile,BufRead *.cpp set syntax=cpp11
 syntax on
 
 
