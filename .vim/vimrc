@@ -135,6 +135,7 @@ au Bufread,BufNewFile *.co set filetype=coffee
 au Bufread,BufNewFile *.less set filetype=less
 au Bufread,BufNewFile *.go set filetype=go
 au BufNewFile,BufRead *.cpp set syntax=cpp11
+au BufNewFile,BufRead *.h set syntax=cpp11
 syntax on
 
 
