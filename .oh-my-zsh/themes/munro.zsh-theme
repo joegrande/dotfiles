@@ -2,12 +2,24 @@
 # ➜
 
 function timebook_prompt_info() {
-    if [ "`t`" = "default: not active" ]
+    REDIS=`redis-cli GET timebook`
+    if [ "$REDIS" = "" ]
     then
-        echo "NO"
-    else
-        echo "%{$reset_color%}%{$fg[red]%}`t | sed 's/^[^\(]*//'` "
+        #t | redis-cli -x SET timebook >/dev/null
+        #REDIS=`redis-cli GET timebook`
+        redis-cli SET timebook "yes" >/dev/null
+        redis-cli EXPIRE timebook 30 >/dev/null
+
+        if [ "$REDIS" = "default: not active" ]
+        then
+            echo "" | redis-cli -x SET timebook_zsh >/dev/null
+        else
+            echo "%{$reset_color%}%{$fg_bold[yellow]%}`t | sed 's/^[^\(]*//'`" \
+                | redis-cli -x SET timebook_zsh >/dev/null
+        fi
     fi
+    echo "`redis-cli GET timebook_zsh`"
+
 }
 
 if [ "`hostname -s`" = "skylab" ]
@@ -23,7 +35,7 @@ else
     ICON="➜ "
 fi
 
-PROMPT='%{$fg_bold[magenta]%}$ICON%n %{$fg[yellow]%}%~ $(git_prompt_info)
+PROMPT='%{$fg_bold[magenta]%}$ICON%n %{$fg[yellow]%}%~ $(git_prompt_info)$(timebook_prompt_info)
 %{$fg_bold[magenta]%}$ICON%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"

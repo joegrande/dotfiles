@@ -38,3 +38,4 @@ export PATH="/usr/local/bin:$PATH"
 . ~/.nvm/nvm.sh
 nvm use 0.4 >/dev/null
 . ~/.localrc
+. ~/.nvm/nvm.sh

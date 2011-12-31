@@ -11,9 +11,11 @@ import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
 import qualified XMonad.StackSet as W
 
+
 -- Program Exceptions
 myManageHook  = composeAll [ resource =? "gitk"  --> doF (W.swapMaster)
                            , resource =? "meld"  --> doF (W.swapMaster)
+                           , resource =? "gitg"  --> doF (W.swapMaster)
                            ]
 newManageHook = myManageHook <+> manageDocks <+> manageHook defaultConfig
 
@@ -22,11 +24,11 @@ main = do
     hXmobar <- spawnPipe "/usr/bin/xmobar"
     xmonad =<< xmobar ((withUrgencyHook NoUrgencyHook) defaultConfig
         { modMask               = mod4Mask 
-        , terminal              = "urxvt"
+        , terminal              = "urxvt -name foobar"
         , workspaces            = map show [1..6]
         , normalBorderColor     = colorNormalBorder
         , focusedBorderColor    = colorFocusedBorder
-        , borderWidth           = 3
+        , borderWidth           = 0
         , layoutHook            = avoidStruts $ wmLayout
         , manageHook            = newManageHook
         , logHook               = wmLog hXmobar 
@@ -37,7 +39,7 @@ colorNormalBorder   = "#4d4843"
 colorFocusedBorder  = "#FFC469"
 
 -- Layout
-wmLayout = layoutHints (wmLayoutTall ||| wmLayoutWide ||| Full ||| wmLayoutTiny ||| wmLayoutResize) 
+wmLayout = layoutHintsToCenter (wmLayoutTall ||| wmLayoutWide ||| Full ||| wmLayoutTiny ||| wmLayoutResize) 
 
 wmLayoutTall = named "Tall" (Tall 1 (3/100) (6/10))
 wmLayoutWide = named "Wide" (Mirror $ Tall 1 (3/100) (7/10))
