@@ -28,14 +28,14 @@ main = do
         , workspaces            = map show [1..6]
         , normalBorderColor     = colorNormalBorder
         , focusedBorderColor    = colorFocusedBorder
-        , borderWidth           = 0
+        , borderWidth           = 2
         , layoutHook            = avoidStruts $ wmLayout
         , manageHook            = newManageHook
         , logHook               = wmLog hXmobar 
         } `additionalKeys` wmKeys)
 
 -- Colors
-colorNormalBorder   = "#4d4843"
+colorNormalBorder   = "#111111"
 colorFocusedBorder  = "#FFC469"
 
 -- Layout

@@ -1,13 +1,13 @@
 Xcursor.theme: Vanilla-DMZ-AA
-Emacs.font: Monospace-10
+Emacs.font: Ubuntu Mono-11
 
 
 !Xft.hinting:   true
 !Xft.hintstyle: hintfull
 
 Xft.dpi:	96
-Xft.antialias:	1
-Xft.hinting:	1
+Xft.antialias:	true
+Xft.hinting:	true
 Xft.hintstyle:	hintfull
 Xft.rgba:	rgb
 Xft.lcdfilter:	lcddefault
@@ -20,12 +20,19 @@ Xft.lcdfilter:	lcddefault
 !Xft.hintstyle:  hintfull
 !!!Xft.hintstyle:  hintslight
 
+URxvt*perl-lib: /usr/lib/urxvt/perl/
+URxvt*perl-ext-common:  default,matcher
+URxvt*urlLauncher:      /usr/bin/google-chrome
+URxvt*matcher.button:   1
+URxvt*underlineURLs: true
+
+
 URxvt*keysym.Home: \033[1~
 URxvt*keysym.End: \033[4~
 
 ! XTerm class
-XTerm*faceName: DejaVu Sans Mono:style=Book
-XTerm*faceSize: 10
+XTerm*faceName: Ubuntu Mono
+XTerm*faceSize: 11
 XTerm*termName: xterm-color
 XTerm*boldMode: false
 
@@ -50,7 +57,7 @@ XTerm*color7: whitesmoke
 XTerm*color15: ghostwhite
 
 ! Urxvt class
-URxvt.font: xft:DejaVu Sans Mono-8:style=Book
+URxvt.font: xft:Ubuntu Mono-11
 URxvt*fading: 50
 URxvt*scrollBar: true
 URxvt*scrollstyle: plain
@@ -58,8 +65,6 @@ URxvt*scrollBar_floating: true
 URxvt*scrollBar_right: true
 URxvt*scrollColor: #202020
 URxvt*termName: xterm
-URxvt*urllauncher: /usr/bin/chromium 
-URxvt*matcher.button: 3
 URxvt*saveLines: 8192
 URxvt*internalBorder: 20
 URxvt*urgentOnBell: true
@@ -85,7 +90,7 @@ URxvt*color7: whitesmoke
 URxvt*color15: ghostwhite
 
 ! Urxvt Scheme - coding
-coding*font: xft:Inconsolata-11:style=Normal
+coding*font: xft:Ubuntu Mono-11
 coding*background: grey10
 coding*foreground: #DED6CA
 coding*color0: #4d4843
@@ -106,7 +111,7 @@ coding*color7: #D1C8BC
 coding*color15: #DED6CA
 
 ! Urxvt Scheme - tiny
-tiny*font: xft:DejaVu Sans Mono-8:style=Book
+tiny*font: xft:Ubuntu Mono-11
 tiny*background: grey10
 tiny*foreground: #DED6CA
 tiny*color0: #4d4843

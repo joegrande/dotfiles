@@ -79,7 +79,7 @@ nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> :tabprevious<CR>
 
 " gvim
-set guifont=Monospace\ 9
+set guifont=Ubuntu\ Mono\ 11
 set guioptions-=T
 set guioptions-=m
 set guioptions-=l
@@ -128,14 +128,15 @@ Bundle 'reload.vim'
 let g:snips_author = 'Ryan Munro'
 
 " Syntax detection
-au BufNewFile,BufRead *.mxml set filetype=mxml
+au BufRead,BufNewFile *.cpp set syntax=cpp11
+au BufRead,BufNewFile *.h set syntax=cpp11
+au BufRead,BufNewFile *.mxml set filetype=mxml
 au Bufread,BufNewFile *.as set filetype=actionscript
-au Bufread,BufNewFile *.cs set filetype=coffee
 au Bufread,BufNewFile *.co set filetype=coffee
-au Bufread,BufNewFile *.less set filetype=less
+au Bufread,BufNewFile *.cs set filetype=coffee
 au Bufread,BufNewFile *.go set filetype=go
-au BufNewFile,BufRead *.cpp set syntax=cpp11
-au BufNewFile,BufRead *.h set syntax=cpp11
+au Bufread,BufNewFile *.less set filetype=less
+au Bufread,BufNewFile *.php.tpl set filetype=php
 syntax on
 
 

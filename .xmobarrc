@@ -1,5 +1,5 @@
 Config 
-    { font = "xft:DejaVu Sans Mono-9:style=Book"
+    { font = "xft:Ubuntu Mono-11"
     , bgColor = "#111111"
     , fgColor = "#888877"
     , position = Top
