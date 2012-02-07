@@ -35,7 +35,7 @@ else
     ICON="➜ "
 fi
 
-PROMPT='%{$fg_bold[magenta]%}$ICON%n %{$fg[yellow]%}%~ $(git_prompt_info)$(timebook_prompt_info)
+PROMPT='%{$fg_bold[magenta]%}$ICON%n %{$fg[yellow]%}%~ $(git_prompt_info)
 %{$fg_bold[magenta]%}$ICON%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
