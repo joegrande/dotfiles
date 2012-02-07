@@ -1,1 +1,8 @@
-/usr/share/themes/Ambiance/gtk-2.0/gtkrc
+style "default-style"
+{
+  GtkWindow::resize-grip-height = 0
+  GtkWindow::resize-grip-width = 0
+}
+
+class "GtkWidget" style "default-style"
+

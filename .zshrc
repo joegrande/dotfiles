@@ -34,7 +34,9 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 export PATH="/usr/local/bin:$PATH"
+export EDITOR="vim"
 
 . ~/.nvm/nvm.sh
-nvm use 0.4 >/dev/null
+nvm use 0.6 >/dev/null
 . ~/.localrc
+. ~/.nvm/nvm.sh
